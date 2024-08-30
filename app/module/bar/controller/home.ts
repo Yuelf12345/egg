@@ -1,5 +1,5 @@
 import { EggLogger } from 'egg';
-import { Inject, HTTPController, HTTPMethod, HTTPMethodEnum } from '@eggjs/tegg';
+import { Inject, HTTPController, HTTPMethod, HTTPMethodEnum,Context, EggContext } from '@eggjs/tegg';
 
 @HTTPController({
   path: '/',
@@ -12,8 +12,10 @@ export class HomeController {
     method: HTTPMethodEnum.GET,
     path: '/',
   })
-  async index() {
+  async index(@Context() ctx: EggContext) {
     this.logger.info('hello egg logger');
-    return 'hello egg';
+    this.logger.info('ctx',ctx)
+    ctx.body = 'hello ctx egg';
+    return
   }
 }

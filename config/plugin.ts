@@ -29,6 +29,11 @@ const plugin: EggPlugin = {
     enable: true,
     package: 'egg-tracer',
   },
+  // 启用静态文件服务插件
+  static: {
+    enable: true,
+    package: 'egg-static',
+  },
 };
 
 export default plugin;
