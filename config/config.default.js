@@ -16,6 +16,12 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
+  // 添加静态资源配置
+  config.static = {
+    prefix: '/public/',
+    dir: 'app/public',
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
