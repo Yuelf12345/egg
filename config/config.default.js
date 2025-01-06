@@ -22,6 +22,13 @@ module.exports = appInfo => {
     dir: 'app/public',
   };
 
+  config.view = {
+    defaultViewEngine: 'nunjucks',
+    mapping: {
+      '.html': 'ejs',
+    },
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
