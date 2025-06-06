@@ -3,6 +3,8 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
+  // 定义路由
+  router.get('/', controller.index.index);
+  router.get('/home', controller.home.index);
   router.get('/test', controller.test.index);
 };
