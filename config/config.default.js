@@ -23,11 +23,11 @@ module.exports = appInfo => {
   };
 
   // 独立保留安全配置 (原 security 配置应保持安全属性)
-  // config.security = {
-  //   csrf: {
-  //     enable: true, // 真正的 CSRF 防护配置
-  //   },
-  // };
+  config.security = {
+    csrf: {
+      enable: true, // 真正的 CSRF 防护配置
+    },
+  };
 
   // 数据库
   // config.sequelize = {
