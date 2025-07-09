@@ -3,7 +3,7 @@ const { Controller } = require('egg');
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'hi, egg';
+    ctx.success({ hello: 'egg' }, '欢迎使用 Egg.js');
   }
 }
 

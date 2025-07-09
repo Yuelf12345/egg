@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "egg": "^3.17.5",
+    "egg-cors": "^3.0.1",
     "egg-scripts": "2",
-    "egg-view-ejs": "^3.0.0"
+    "egg-view-ejs": "^3.0.0",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "egg-bin": "6",
@@ -21,9 +23,8 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "dev": "egg-scripts start --daemon --title=egg-server-demo",
-    "stop": "egg-scripts stop --title=egg-server-demo",
     "dev": "egg-bin dev",
+    "stop": "egg-scripts stop --title=egg-server-demo",
     "test": "npm run lint -- --fix && npm run test:local",
     "test:local": "egg-bin test",
     "cov": "egg-bin cov",

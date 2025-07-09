@@ -25,7 +25,7 @@ module.exports = appInfo => {
   // 独立保留安全配置 (原 security 配置应保持安全属性)
   config.security = {
     csrf: {
-      enable: true, // 真正的 CSRF 防护配置
+      enable: false, // 真正的 CSRF 防护配置
     },
   };
 
@@ -39,8 +39,14 @@ module.exports = appInfo => {
   //   password: 'root',
   // };
 
+  // 启用 auth 中间件，仅保护 /protected 路径（示例）
+  config.middleware = ['auth'];
+  config.auth = {
+    match: /^\/protected/,
+  };
+
   // add your middleware config here
-  config.middleware = [];
+  // config.middleware = [];
 
   // 添加静态资源配置
   config.static = {
@@ -48,6 +54,12 @@ module.exports = appInfo => {
     dir: 'app/public',
   };
 
+  // CORS 配置，允许所有来源
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+    credentials: true,
+  };
 
   // 日志打印
   config.logger = {
@@ -62,6 +74,9 @@ module.exports = appInfo => {
       '.html': 'ejs',
     },
   };
+
+  // JWT 密钥配置
+  config.jwtSecret = 'egg-demo-secret-key'; // 建议生产环境用更复杂的密钥
 
   // add your user config here
   const userConfig = {
